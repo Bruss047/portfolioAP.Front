@@ -1,0 +1,59 @@
+<section id="resumeB" class="grey-section ">
+
+  <div class="row resume-timeline mx-auto ">
+
+    <div class="col-twelve resume-header">
+
+      <h2>Educación</h2>
+      <button class="btn btn-dark" routerLink="/nuevaeduc" *ngIf="isLogged">
+        AGREGAR EDUCACIÓN
+      </button>
+    </div>
+    <div class="col-twelve">
+      <div class="timeline-wrap">
+        
+         <div id="loadingEducacion" class="loadingSpinner justify-content-center">
+          <div class="spinner-border" role="status">
+              <span class="sr-only" id="loadingEducacion"></span>
+          </div>
+        </div>
+
+        <div class="timeline-block" *ngFor="let Educacion of edu">
+
+          <div class="timeline-ico">
+            <i class="fa fa-briefcase"></i>
+          </div>
+
+          <div class="timeline-header">
+          <div class="float-left courseImg"><img class="imgEduc " src="../../../assets/images/cursos/{{Educacion.imgEdu}}" alt="Course Picture"></div>
+           <div class=" eduInformation"> 
+              <h3>{{Educacion.nombreEd}}</h3>
+              <p>{{Educacion.inicio}} - {{Educacion.fin}}</p>
+            </div>
+          </div>
+          <div class="timeline-content">
+            <h4>{{Educacion.tituloEd}}</h4>
+            <p>{{Educacion.descEd}}</p>
+          </div>
+
+          <div class="text-center row">
+            <div *ngIf="isLogged mx-auto ">
+              <a routerLink="/updateedu/{{Educacion.estudId}}"><i class="fa fa-pencil"></i></a>
+            </div>
+            <div class="text-center" *ngIf="isLogged">
+              <a (click)="delete(Educacion.estudId)"><i class=" fa fa-eraser"></i></a>
+            </div>
+          </div>
+
+        </div> <!-- /timeline-block -->
+
+
+      </div> <!-- /timeline-wrap -->
+
+    </div>
+
+  </div>
+
+
+
+</section>

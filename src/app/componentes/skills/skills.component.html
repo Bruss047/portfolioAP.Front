@@ -1,0 +1,81 @@
+<section id="about">
+  <div class="row about-content">
+
+    <div class="col-six tab-full">
+
+      <h3>Perfil</h3>
+
+      
+
+      <ul class="info-list">
+        <li>
+          <strong>Nombre:</strong>
+          <span>{{persona.nombre}} {{persona.apellido}}</span>
+        </li>
+        <li>
+          <strong>Dirección:</strong>
+          <span>{{persona.direccion}}</span>
+        </li>
+        <li>
+          <strong>telefono:</strong>
+          <span>{{persona.telefono}}</span>
+        </li>
+        <li>
+          <strong>Email:</strong>
+          <span>{{persona.email}}</span>
+        </li>
+
+      </ul> <!-- /info-list -->
+
+    </div>
+
+    <div class="col-six tab-full">
+
+      <h3>Skills</h3>
+
+      <button class="btn btn-dark" routerLink="/nuevoskill" *ngIf="isLogged">
+        AGREGAR SKILL
+      </button>
+
+      <p>Mis Skills son:</p>
+
+      <ul class="skill-bars">
+
+        <div id="loadingSkill" class="loadingSpinner justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only" id="loadingSkill"></span>
+        </div>
+      </div>
+
+        <li *ngFor="let Skill of skill">
+          <!-- El porcenjate debe poder ser divisible por 5 -->
+          <div class="progress percent{{Skill.porcentaje}}">
+
+          </div>
+          <strong>{{Skill.nombre}}</strong>
+          <div class="porcentaje"> <span class="porcentaje">{{Skill.porcentaje}}%</span></div>
+          
+
+          <div class="text-center row">
+            <div *ngIf="isLogged mx-auto ">
+              <a routerLink="/update/{{Skill.skillId}}"><i class="fa fa-pencil"></i></a>
+            </div>
+            <div class="text-center" *ngIf="isLogged">
+              <a (click)="delete(Skill.skillId)"><i class=" fa fa-eraser"></i></a>
+            </div>
+          </div>
+        </li>
+
+      </ul> <!-- /skill-bars -->
+
+    </div>
+
+  </div>
+
+  <!-- <div class="row button-section mx-auto">
+    <div class="col-twelve">
+      <a href="#contact" title="Hire Me" class="button stroke smoothscroll">Hire Me</a>
+      <a href="#" title="Download CV" class="button button-primary">Download CV</a>
+    </div>
+  </div> -->
+</section>

@@ -1,0 +1,77 @@
+<section id="resume" class="grey-section ">
+
+  <div class="row section-intro ">
+    <div class="col-twelve">
+      <div class="intro-info">
+
+        <img src="../../../assets/images/{{persona.img}}" alt="Profile Picture">
+
+      </div>
+      <h5>Sobre Mí</h5>
+
+      <div id="loadingAbout" class="loadingSpinner justify-content-center aboutSpinner">
+          <div class="spinner-border" role="status">
+              <span class="sr-only" id="loadingAbout"></span>
+          </div>
+        </div>
+        
+      <p class="lead">{{persona.sobreMi}}</p>
+      <button class="btn btn-dark" routerLink="/updatePersona" *ngIf="isLogged">
+        EDITAR USUARIO
+      </button>
+
+    </div>
+  </div>
+
+
+  <div class="row resume-timeline mx-auto">
+
+    <div class="col-twelve resume-header">
+
+      <h2>Experiencia Laboral</h2>
+      <button class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
+        AGREGAR EXP. LABORAL
+      </button>
+    </div>
+    <div class="col-twelve">
+      <div class="timeline-wrap">
+
+        <div id="loadingExp" class="loadingSpinner justify-content-center">
+          <div class="spinner-border" role="status">
+              <span class="sr-only" id="loadingExp"></span>
+          </div>
+        </div>
+
+        <div class="timeline-block" *ngFor="let Experiencia of exp">
+          <div class="timeline-ico">
+            <i class="fa fa-briefcase"></i>
+          </div>
+          <div class="timeline-header">
+            
+            <h3>{{Experiencia.nombreExp}}</h3>
+            <p>{{Experiencia.fechaInicio}} - {{Experiencia.fechaFin}}</p>
+          </div>
+          <div class="timeline-content">
+            <h4>{{Experiencia.puesto}}</h4>
+            <p>{{Experiencia.descExp}}</p>
+          </div>
+          <div class="text-center row">
+            <div *ngIf="isLogged mx-auto ">
+              <a routerLink="/editexp/{{Experiencia.expId}}"><i class="fa fa-pencil"></i></a>
+            </div>
+            <div class="text-center" *ngIf="isLogged">
+              <a (click)="delete(Experiencia.expId)"><i class=" fa fa-eraser"></i></a>
+            </div>
+          </div>
+
+        </div> <!-- /timeline-block -->
+
+
+      </div> <!-- /timeline-wrap -->
+
+    </div> <!-- /col-twelve -->
+
+  </div> <!-- /resume-timeline -->
+
+
+</section>

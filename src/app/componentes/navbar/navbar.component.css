@@ -1,0 +1,12 @@
+.btn {
+  background-color: grey;
+  color: white;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.logoArg {
+  height: 60px;
+}

@@ -1,0 +1,48 @@
+<div class="container" *ngIf="pers">
+  <div class="row">
+    <div>
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <div class="form-group">
+          <label for="nombrePers">Nombre</label>
+          <input type="text" class="form-control" id="nombrePers" name="nombre" [(ngModel)]="pers.nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="apellidoPers">Apellido</label>
+          <input type="text" class="form-control" id="apellidoPers" name="apellido" [(ngModel)]="pers.apellido"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="direccionPers">dirección</label>
+          <input type="text" class="form-control" id="direccionPers" name="direccion" [(ngModel)]="pers.direccion"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="sobreMiPers">Sobre Mi</label>
+          <input type="text" class="form-control" id="sobreMiPers" name="sobreMi" [(ngModel)]="pers.sobreMi" required>
+        </div>
+        <div class="form-group">
+          <label for="telefonoPers">Teléfono</label>
+          <input type="number" class="form-control" id="telefonoPers" name="telefono" [(ngModel)]="pers.telefono"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="emailPers">E-Mail</label>
+          <input type="text" class="form-control" id="emailPers" name="email" [(ngModel)]="pers.email" required>
+        </div>
+
+        <label for="imgPers">Seleccionar Imagen:</label>
+        <select id="imgPers" name="img" [(ngModel)]="pers.img">
+
+          <option value="fotoPerfil.jpg">Foto Perfil</option>
+          <option value="avatar1.png">Avatar</option>
+
+        </select>
+
+
+        <button class="btn btn-primary">
+          Actualizar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

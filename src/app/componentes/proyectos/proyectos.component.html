@@ -1,0 +1,94 @@
+<section id="portfolio">
+
+  <div class="row section-intro">
+    <div class="col-twelve">
+
+      <h5>Portfolio</h5>
+      <button class="btn btn-dark" routerLink="/nuevaproyec" *ngIf="isLogged">
+        AGREGAR PROYECTO
+      </button>
+      <h1>Algunos de mis Proyectos</h1>
+
+      <p class="lead">Estos son varios proyectos en los que estuve trabajando a modo personal utilizando React, Android y Unity 2D inclusive.</p>
+
+    </div>
+  </div> <!-- /section-intro-->
+
+  <div class="row portfolio-content">
+
+    <div class="col-twelve">
+           <div id="loadingProj" class="loadingSpinner justify-content-center">
+          <div class="spinner-border" role="status">
+              <span class="sr-only" id="loadingProj"></span>
+          </div>
+        </div>
+     
+      <div id="folio-wrapper " class=" block-1-2 block-mob-full stack">
+
+    
+
+        <div class="bgrid folio-item " *ngFor="let Proyecto of pr">
+          <div class="item-wrap">
+            <img src="../../../assets/images/proyectos/{{Proyecto.img}}" alt="Proyecto Imagen">
+            <a href="#modal-01" class="overlay" href="{{Proyecto.urlP}}">
+              <div class="folio-item-table">
+                <div class="folio-item-cell">
+                  <h3 class="folio-title">{{Proyecto.nombre}}</h3>
+                  <span class=" folio-types">
+                    {{Proyecto.descripcion}}
+                  </span>
+                 
+                </div>
+              </div>
+            </a>
+          </div>
+          <div *ngIf="isLogged" class=" text-center row overlay">
+            <div class=" mx-auto ">
+              <button class="btn btn-success mx-2" routerLink="/editproyecto/{{Proyecto.proyId}}">
+                <i class="fa fa-pencil"></i> EDITAR</button>
+            </div>
+            <div class="text-center" *ngIf="isLogged">
+              <button class="btn btn-danger" (click)="delete(Proyecto.proyId)">
+                <i class="fa fa-eraser"></i> BORRAR</button>
+            </div>
+          </div>
+
+        </div> <!-- /folio-item -->
+
+
+        <!-- modal popups - begin
+	            ============================================================= -->
+        <!-- <div id="modal-01" class="popup-modal slider mfp-hide">
+
+          <div class="media">
+            <img src="images/portfolio/modals/m-liberty.jpg" alt="" />
+          </div>
+
+          <div class="description-box">
+            <h4>Liberty</h4>
+            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
+              consequat ipsum, nec sagittis sem nibh id elit.</p>
+
+            <div class="categories">Web Development</div>
+          </div>
+
+          <div class="link-box">
+            <a href="http://www.behance.net">Details</a>
+            <a href="#" class="popup-modal-dismiss">Close</a>
+          </div>
+
+        </div> -->
+
+
+
+        <!-- modal popups - end
+	            ============================================================= -->
+
+      </div>
+
+
+    </div> <!-- /twelve -->
+
+  </div> <!-- /portfolio-content -->
+
+</section> <!-- /portfolio -->

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+        <div class="form-group">
+          <label for="nombreEd">Nombre</label>
+          <input type="text" class="form-control" id="nombreEd" name="nombreEd" [(ngModel)]="nombreEd" required>
+        </div>
+        <div class="form-group">
+          <label for="tituloEd">Titulo</label>
+          <input type="text" class="form-control" id="tituloEd" name="tituloEd" [(ngModel)]="tituloEd" required>
+        </div>
+        <div class="form-group">
+          <label for="descEd">Descripción</label>
+          <input type="text" class="form-control" id="descEd" name="descEd" [(ngModel)]="descEd" required>
+        </div>
+        <label for="imgEdu">Seleccionar Imagen:</label>
+        <select id="imgEdu" name="imgEdu" [(ngModel)]="imgEdu">
+
+          <option value="arg-programa.png">Arg. Programa</option>
+          <option value="coder.png">CoderHouse</option>
+          <option value="udemy.png">Udemy</option>
+          <option value="platzi.png">Platzi</option>
+          <option value="unlz.jpg">Unlz</option>
+
+        </select>
+        <div class="form-group">
+          <label for="inicioEd">Inicio</label>
+          <input type="text" class="form-control" id="inicioEd" name="inicioEd" [(ngModel)]="inicio" required>
+        </div>
+        <div class="form-group">
+          <label for="finEd">Fin</label>
+          <input type="text" class="form-control" id="finEd" name="finEd" [(ngModel)]="fin" required>
+        </div>
+
+        <button class="btn btn-primary">
+          Agregar Educación
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

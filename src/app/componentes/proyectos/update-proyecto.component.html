@@ -1,0 +1,24 @@
+<div class="container" *ngIf="proyec">
+  <div class="row">
+    <div>
+      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <div class="form-group">
+          <label for="nombrePr">Nombre</label>
+          <input type="text" class="form-control" id="nombrePr" name="nombrePr" [(ngModel)]="proyec.nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="descPr">Descripción</label>
+          <input type="text" class="form-control" id="descPr" name="descPr" [(ngModel)]="proyec.descripcion" required>
+        </div>
+        <div class="form-group">
+          <label for="urlPr">Link/ Url</label>
+          <input type="text" class="form-control" id="urlPr" name="urlPr" [(ngModel)]="proyec.urlP" required>
+        </div>
+
+        <button class="btn btn-primary">
+          Actualizar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
